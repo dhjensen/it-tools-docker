@@ -1,0 +1,15 @@
+name: It tools
+
+services:
+  ittools:
+    image: corentinth/it-tools:${ITTOOLS_VERSION}
+    container_name: ittools
+    ports:
+      - "127.0.0.1:8001:80"
+    networks:
+      - nginx-proxy-manager_frontend
+
+networks:
+  nginx-proxy-manager_frontend:
+    driver: bridge
+    external: true
