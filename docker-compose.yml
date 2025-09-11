@@ -4,10 +4,14 @@ services:
   ittools:
     image: corentinth/it-tools:${ITTOOLS_VERSION}
     container_name: ittools
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
     ports:
       - "127.0.0.1:8001:80"
     networks:
       - nginx-proxy-manager_frontend
+    labels:
+      - wud.tag.include=^\d+\.\d+\.\d+-\w+$$
 
 networks:
   nginx-proxy-manager_frontend:
